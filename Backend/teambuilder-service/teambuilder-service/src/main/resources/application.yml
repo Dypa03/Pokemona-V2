@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: teambuilder-service
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        instance:
+            preferIpAddress: true
+server:
+    port: 8080
