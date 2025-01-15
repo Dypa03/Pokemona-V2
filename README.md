@@ -9,4 +9,6 @@ The project will allow the user to create a Pokemon Rejuvenation team. This will
 2. Only Pokèmon available in Rejuvenation Walkthrough will be in this teambuilder
 3. When creating a team instead of formats there will be Chapters! Since certain pokemons, moves and items are avaliable after a certain chapter in the walktrhough, the database will only show what is avaliable in that chapter.
 
-And for now it's everything, I will update the README file when my ADHD won't kick in(LMAO).
+And for now it's everything, I will update the README file when my ADHD won't kick in(or when it will...idk).
+
+The DB image is not 100% accurate cause... well I had to pay 16€/month for DB designer and... I'm not gonna do that, Caitlyn skins are more important
