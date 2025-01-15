@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS `pokemon` (
 	`is_legendary` boolean NOT NULL,
 	`pokedex_number` int NOT NULL,
 	`chapter` int NOT NULL,
-	`has_mega` boolean NOT NULL,
+	`evolves_into` int,
+	`gender_rate` int NOT NULL,
+
 	PRIMARY KEY (`pokemon_id`)
 );
 
@@ -108,10 +110,19 @@ CREATE TABLE IF NOT EXISTS `team_pokemon` (
 	`iv_sp_defense` int NOT NULL,
 	`iv_speed` int NOT NULL,
 	`nature` varchar(20) NOT NULL,
+	`gender` enum('Male', 'Female', 'Genderless'),
 	PRIMARY KEY (`team_id`, `pokemon_id`)
 );
 
-
+CREATE TABLE IF NOT EXISTS `pokemon_mega_evolutions` (
+	`base_pokemon_id` int NOT NULL,
+	`mega_pokemon_id` int NOT NULL,
+	`required_item_id` int NOT NULL,
+	PRIMARY KEY (`base_pokemon_id`, `mega_pokemon_id`),
+	FOREIGN KEY (`base_pokemon_id`) REFERENCES `pokemon`(`pokemon_id`),
+	FOREIGN KEY (`mega_pokemon_id`) REFERENCES `pokemon`(`pokemon_id`),
+	FOREIGN KEY (`required_item_id`) REFERENCES `items`(`item_id`)
+);
 
 
 
@@ -138,3 +149,5 @@ ALTER TABLE `team_pokemon` ADD CONSTRAINT `team_pokemon_fk6` FOREIGN KEY (`move_
 ALTER TABLE `team_pokemon` ADD CONSTRAINT `team_pokemon_fk7` FOREIGN KEY (`move_3`) REFERENCES `moves`(`move_id`);
 
 ALTER TABLE `team_pokemon` ADD CONSTRAINT `team_pokemon_fk8` FOREIGN KEY (`move_4`) REFERENCES `moves`(`move_id`);
+
+
